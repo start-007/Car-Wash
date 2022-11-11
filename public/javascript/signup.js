@@ -5,8 +5,8 @@ signupsubmit.addEventListener("click", (e) => {
   var formEl = document.forms.signupform;
   const signFormData = new FormData(formEl);
   console.log(signFormData.get("name"));
-  var username=signFormData.get("name");
-  var useremail=signFormData.get("email");
+  var name=signFormData.get("name");
+  var email=signFormData.get("email");
   var userphone=signFormData.get("phone");
   var userpassword=signFormData.get("password");
   var userretypepassword=signFormData.get("retypepassword");
@@ -19,8 +19,8 @@ signupsubmit.addEventListener("click", (e) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name:username,
-        email:useremail,
+        name:name,
+        username:email,
         phone:userphone,
         password:userpassword
       }),
@@ -30,7 +30,7 @@ signupsubmit.addEventListener("click", (e) => {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        window.location=data.redirect;
       })
       .catch(console.log(console.error));
 
