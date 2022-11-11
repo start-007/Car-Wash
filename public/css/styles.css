@@ -3,3 +3,8 @@ form {
   width: 50%;
   padding: 5%;
 }
+
+.required:after {
+  content:" *";
+  color: red;
+}

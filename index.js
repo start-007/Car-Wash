@@ -9,13 +9,14 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const PORT = process.env.PORT || 3000;
 
+var jsonParser = bodyParser.json()
 
 app.use(express.static(__dirname + '/public'));
 
 app.set("view engine", "ejs");
 app.use(
   bodyParser.urlencoded({
-    extended: true,
+    extended: false,
   })
 );
 
@@ -32,13 +33,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-require("./routes/loginSignup")(app,mongoose);
+require("./routes/login")(app);
+require("./routes/signup")(app,mongoose,jsonParser);
 
 //////////////////////////////////////////////Routes//////////////////////////////////////////
 
 app.get("/", (req, res) => {
   res.render("home", { Message: "Hello Welcom to Car Wash" });
 });
+
 
 app.listen(PORT, () => {
   console.log("Listening at " + PORT);
