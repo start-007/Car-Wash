@@ -15,10 +15,22 @@
 
    <% } %>
    <div class="container content">
+    
+    <h1>Bookings</h1>
 
-    <h1><%= Message %></h1>
-
-   </div>
+    <% Bookings.forEach((Booking)=>{ %>
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">location:<%=Booking.location %></div>
+        <div class="card-body">
+          <h5 class="card-title">servicename:<%= Booking.servicename %></h5>
+          <h5 class="card-title">requestdate:<%= Booking.requestdate %></h5>
+          <h5 class="card-title">requesttime:<%= Booking.requesttime %></h5>
+          <h5 class="card-title">status:<%= Booking.status%></h5>
+        </div>
+      </div>
+    <% }) %>
+    
+  </div>
   
   
 <%- include('partials/footer'); -%>

@@ -1,4 +1,4 @@
-module.exports = function (app,Admin, passport) {
+module.exports = function (app,Admin, passport,Booking) {
   
   app.get("/auth/admin/login", (req, res) => {
     res.render("login", {
@@ -12,6 +12,8 @@ module.exports = function (app,Admin, passport) {
       req.body.username,
       req.body.password
     );
+
+    res.render("admin/adminhome");
     
   });
   app.get("/admin/loginerror", (req, res) => {
@@ -30,7 +32,47 @@ module.exports = function (app,Admin, passport) {
      
   });
   app.get("/admin/bookings",(req,res)=>{
-    res.render("admin/bookings",{Message:"bookings"});
+    Booking.find({},(err,bookings)=>{
+      var mybookings=[]
+      if(err){
+        console.log(err);
+      }
+      else if(!bookings){
+
+      }
+      else{
+        
+        mybookings=bookings;
+      }
+      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing all bookings"});
+    })
+  });
+  app.post("/admin/bookings/filters",(req,res)=>{
+    const filters={};
+    if(!req.body.location && !req.body.date){
+      console.log("entered");
+      res.redirect("/admin/bookings")
+    }
+    if(req.body.location!=""){
+      filters.location=req.body.location;
+    }
+    if(req.body.date!=""){
+      filters.requestdate=req.body.date;
+    }
+    Booking.find(filters,(err,bookings)=>{
+      var mybookings=[]
+      if(err){
+        console.log(err);
+      }
+      else if(!bookings){
+
+      }
+      else{
+        
+        mybookings=bookings;
+      }
+      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing results for "+req.body.location+","+req.body.date});
+    })
   });
   
 };

@@ -1,13 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a service</title>
+
+
+<%- include("partials/header") -%>
+
+<link rel="stylesheet" href="/css/bookaservice.css">
+<link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
-  
-  <h1>Book a service</h1>
+  <% if(Authenticated){ %>
+
+    <%- include('partials/afterloginnavbar'); -%>
+
+  <% } else { %>
+
+      <%- include('partials/navbar'); -%>
+
+   <% } %>
+
+   <div class="container content">
+    <h1>Book a service</h1>
+
+    <div>
+      Search based on city
+    </div>
+    <div class="input-group">
+      <div class="text-container">
+        <input type="text" id="location" list="locations" 
+                    placeholder="Enter Here" name="location" class="form-control"/>
+        <a class="btn btn-primary" href="#fillform">Submit</a>
+        <datalist id="locations"  style="overflow-y: auto!important">
+        </datalist>
+      </div>
+    </div>
+      
+    </div>
+    <div>
+      (or)
+    </div>
+    <div>
+      Search based on your location
+    </div>
+    <button class="btn btn-primary" onclick="getLocation()">Use your Location</button>
+    
+    <p>Please allow the website to use your location</p>
+    <form id="fillform">
+      <div class="form-group">
+        <div class="text-container">
+          <label  class="required" for="service">Service</label>
+          <input type="text" list="services" 
+                      placeholder="Enter Here" name="service" class="form-control"/>
+          <datalist id="services"  style="overflow-y: auto!important">
+          </datalist>
+        </div>
+        <label class="required">Date</label>
+        <input type="date" class="form-control" aria-describedby="emailHelp" name="date" required>
+      </div>
+      <div class="form-group">
+        <label class="required">Time</label>
+        <input type="time" class="form-control" name="time" required>
+      </div>
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+   </div>
+ 
+
 </body>
+<!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBymMj3USLsqETLF97WrBFagi7jEdL5SpM&callback=initMap">
+</script> -->
+<script src="/javascript/bookaservice.js"></script>
 </html>
