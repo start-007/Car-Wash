@@ -58,10 +58,24 @@ const adminSchema=new mongoose.Schema({
   username:"String",
   password:"String",
 });
+const serviceScheam=new mongoose.Schema({
+  servicename:"String",
+  description:"String"
+});
+const locationSchema=new mongoose.Schema({
+  branchname:"String",
+  address:"String",
+  city:"String",
+  state:"String",
+  zip:"String",
+  contact:"String",
+})
 
 adminSchema.plugin(passportLocalMongoose);
 
 const Admin=new mongoose.model("Admin",userSchema);
+const Service=new mongoose.model("Service",serviceScheam);
+const Location=new mongoose.model("Location",locationSchema);
 
 ///Initialize passport for the User Collection
 
@@ -78,6 +92,7 @@ passport.deserializeUser(User.deserializeUser());
 require("./routes/login")(app,User,passport); // routes for the login for user and admin
 require("./routes/signup")(app,jsonParser,passport,User); // routes for user signup
 require("./routes/admin")(app,Admin,passport);
+require("./routes/modify")(app,Service,Location);
 
 
 
