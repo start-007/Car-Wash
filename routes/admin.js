@@ -1,4 +1,4 @@
-module.exports = function (app,Admin, passport,Booking) {
+module.exports = function (app,Admin, bcrypt,Booking) {
   
   app.get("/auth/admin/login", (req, res) => {
     res.render("login", {

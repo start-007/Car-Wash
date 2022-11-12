@@ -95,6 +95,7 @@ passport.deserializeUser(User.deserializeUser());
 ///Initialize passport for the Admin Collection
 
 
+
 //////////////////////////////////////External Routes///////////////////////////////////////////
 
 require("./routes/login")(app,User,passport); // routes for the login for user and admin
