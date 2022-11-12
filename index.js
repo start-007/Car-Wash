@@ -20,6 +20,8 @@ app.use(
   })
 );
 
+///Start the session for the passport.js
+
 app.use(
   session({
     secret: "Our little secret.",
@@ -37,6 +39,9 @@ app.use(passport.session());
 
 mongoose.connect("mongodb://localhost:27017/carwashDB",{useNewUrlParser:true});
 
+
+///User schema
+
 const userSchema=new mongoose.Schema({
   username:"String",
   name:"String",
@@ -48,6 +53,8 @@ userSchema.plugin(passportLocalMongoose);
 
 const User=new mongoose.model("User",userSchema);
 
+///Initialize passport for the User Collection
+
 passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
@@ -56,22 +63,60 @@ passport.deserializeUser(User.deserializeUser());
 
 //////////////////////////////////////External Routes///////////////////////////////////////////
 
-require("./routes/login")(app,User,passport);
-require("./routes/signup")(app,jsonParser,passport,User);
+require("./routes/login")(app,User,passport); // routes for the login for user and admin
+require("./routes/signup")(app,jsonParser,passport,User); // routes for user signup
 
 
 
 
 //////////////////////////////////////////////Routes//////////////////////////////////////////
 
+
+// Home Route 
 app.get("/", (req, res) => {
-  res.render("home", { Message: "Hello Welcom to Car Wash" });
+
+  const Content={ Message: "Hello Welcome to Car Wash",Authenticated:false};
+  if(req.isAuthenticated()){
+
+    Content.Authenticated=true;
+  
+  }
+  res.render("home", Content);
 });
 
-app.get("/home",(req,res)=>{
-  res.send("Loggind");
+app.get("/services",(req,res)=>{
+  const Content={ Message: "Serives",Authenticated:false};
+  if(req.isAuthenticated()){
+
+    Content.Authenticated=true;
+  
+  }
+  res.render("services", Content);
 })
 
+app.get("/locations",(req,res)=>{
+  const Content={ Message: "Locations",Authenticated:false};
+  if(req.isAuthenticated()){
+
+    Content.Authenticated=true;
+  
+  }
+  res.render("services", Content);
+})
+
+app.get("/franchise",(req,res)=>{
+
+  const Content={ Message: "Franchise",Authenticated:false};
+  if(req.isAuthenticated()){
+
+    Content.Authenticated=true;
+  
+  }
+  res.render("services", Content);
+
+})
+
+//listen to the port
 app.listen(PORT, () => {
   console.log("Listening at " + PORT);
 });

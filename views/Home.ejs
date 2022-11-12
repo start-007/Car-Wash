@@ -1,13 +1,76 @@
 <%- include('partials/header'); -%>
 
+<link rel="stylesheet" href="/css/styles.css">
+
 <title>Home</title>
 </head>
 <body>
+  <% if(Authenticated){ %>
 
-  <a href="/auth/login">Login</a>
-  <a href="/auth/signup">Signup</a>
+    <%- include('partials/afterloginnavbar'); -%>
 
-  <h1><%= Message %></h1>
+  <% } else { %>
+
+      <%- include('partials/navbar'); -%>
+
+   <% } %>
+  
+  <div class="container content">
+    <h2><%= Message %></h2>
+    <p>Use the navbar-btn class on a button to vertically align (same padding as links) it inside the navbar.</p>
+
+    <div class="card-flex">
+
+    
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">Smart Technology</div>
+      <div class="card-body">
+        <h5 class="card-title">Smart Technology</h5>
+        <p class="card-text">In just 20 minutes get clean, shinny and sparkling Car!!</p>
+      </div>
+    </div>
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Smart Technology</div>
+      <div class="card-body text-dark">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">In just 20 minutes get clean, shinny and sparkling Car!!</p>
+      </div>
+    </div>
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">Smart Technology</div>
+      <div class="card-body">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">In just 20 minutes get clean, shinny and sparkling Car!!</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="welcome">
+    <h2>Welcome to Car Wash</h2>
+  </div>
+    
+  <div class="description card-flex">
+
+    <div class="text">
+      <p>
+        Leading and working with Dedicated Leaders is what we do
+        Exppress Car Wash is India’s leading automatic-based car wash and detailing company that offers a car wash franchise business opportunity PAN India for over 35 years. We have been working with leaders and entrepreneurs.
+  
+        Our range of services includes – Glass treatment, Engine coating, Ac treatment, Alloy wheel protection, Headlight restoration, Leather conditioning treatment, Underbody coating, Fabric protection, Paint protection, Rubbing & waxing, and Silencer coating, we do it all. In a nutshell way, we are a one-stop car care solution for your car.
+      </p>
+
+    </div>
+
+    <div >
+      <img class="image-decoration" src="/assets/image.jpeg" alt="">
+    </div>
+    
+  </div>
+  <div>
+
+  </div>
+</div>
 
   
 <%- include('partials/footer'); -%>

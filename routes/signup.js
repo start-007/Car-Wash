@@ -1,4 +1,4 @@
-module.exports = function (app, jsonParser, passport,User) {
+module.exports = function (app, jsonParser, passport, User) {
   ////////////////////////Signup/////////////////////////
   app.get("/auth/signup", function (req, res) {
     res.render("signup", {
@@ -23,18 +23,15 @@ module.exports = function (app, jsonParser, passport,User) {
       (err, user) => {
         if (err) {
           console.log(err);
-          res.send({redirect: '/auth/login'});
+          res.send({ redirect: "/auth/login" });
         } else {
-          
           passport.authenticate("local")(req, res, () => {
-            res.send({redirect: '/'});
+            res.send({ redirect: "/" });
           });
         }
       }
     );
-    //res.send({ Message: "ok" });
   });
-
 
   //other routes..
 };

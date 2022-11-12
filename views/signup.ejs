@@ -1,19 +1,27 @@
 <%- include('partials/header'); -%>
 
-<link rel="stylesheet" href="/css/styles.css">
+
+<link rel="stylesheet" href="/css/form.css">
 <title>Signup</title>
 </head>
 <body>
+  <%- include('partials/navbar'); -%>
+  <div class="container content">
 
-  <h1><%= Message %></h1>
-  <h2 id="error"></h2>
+  
+  
   <form id="signupform" action="/auth/signup/details" method="post">
+    <h1><%= Message %></h1>
+    <h2 id="error"></h2>
     <div class="form-group">
       <label class="required">Name</label>
       <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Name" name="name" required>
       <label class="required">Email address</label>
       <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      
+    </div>
+    <div class="form-group">
       <label class="required">Phone</label>
       <input type="tel" class="form-control" placeholder="Enter Phone Number" name="phone" required>
     </div>
@@ -23,9 +31,15 @@
       <label class="required">Retype Password</label>
       <input type="password" class="form-control" placeholder="Retype Password" name="retypepassword" required>
     </div>
+    <div class="form-group">
+      <a href="/auth/login">Already have an account?</a>
+    </div>
     <button id="submit" type="submit" class="btn btn-primary">Submit</button>
   </form>
-
+</div>
 
   <script src="/javascript/signup.js"></script>
-<%- include('partials/footer'); -%>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</html>

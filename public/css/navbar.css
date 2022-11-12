@@ -1,0 +1,13 @@
+.nav-item{
+
+  margin-right: 5%;
+
+}
+.navbar {
+  overflow: visible;
+  
+  position: fixed; /* Set the navbar to fixed position */
+  top: 1%; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 2;
+}

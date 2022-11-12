@@ -1,0 +1,27 @@
+footer{
+  position: relative;
+  margin-top: 45px;
+  padding-top: 50px;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+footer .copyright {
+  padding: 30px 15px;
+}
+
+.container{
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row{
+  width: 100%;
+    margin-right: -15px;
+    margin-left: 0px;
+}

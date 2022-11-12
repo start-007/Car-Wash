@@ -1,0 +1,22 @@
+
+form {
+  font-size: medium;
+  height: auto;
+  width: 50%;
+  padding: 5%;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10%;
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
+
+.content{
+  margin-top: 7%;
+  margin-right:0;
+  margin-left: 10%;
+  padding-left: 10%;
+  
+}
