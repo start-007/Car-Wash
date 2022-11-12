@@ -14,8 +14,21 @@
 
    <% } %>
   <div class="container content">
-    <h1><%= Message %></h1>
+    <h1>Locations</h1>
 
+    <% Locations.forEach((location)=>{ %>
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Branch Name:<%=location.branchname %></div>
+        <div class="card-body">
+          <h5 class="card-title">Contact:<%= location.contact %></h5>
+          <h5 class="card-title">Address:<%= location.address %></h5>
+          <h5 class="card-title">City:<%= location.city %></h5>
+          <h5 class="card-title">State:<%= location.state %></h5>
+          <h5 class="card-title">Zip:<%= location.zip %></h5>
+        </div>
+      </div>
+    <% }) %>
+    
   </div>
   
 

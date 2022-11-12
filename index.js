@@ -69,7 +69,13 @@ const locationSchema=new mongoose.Schema({
   state:"String",
   zip:"String",
   contact:"String",
-})
+});
+const bookings=new mongoose.Schema({
+  username:"String",
+  servicename:"String",
+  requestdata:"Date",
+  status:"Number"
+});
 
 adminSchema.plugin(passportLocalMongoose);
 
@@ -98,7 +104,7 @@ require("./routes/modify")(app,Service,Location);
 
 //////////////////////////////////////////////Routes//////////////////////////////////////////
 
-
+// User Routes
 // Home Route 
 app.get("/", (req, res) => {
 
@@ -112,23 +118,53 @@ app.get("/", (req, res) => {
 });
 
 app.get("/services",(req,res)=>{
-  const Content={ Message: "Serives",Authenticated:false};
-  if(req.isAuthenticated()){
+  Service.find({},(err,services)=>{
 
-    Content.Authenticated=true;
-  
-  }
-  res.render("services", Content);
+    const Content={Authenticated:false,Services:[]};
+    
+    if(req.isAuthenticated()){
+
+      Content.Authenticated=true;
+    
+    }
+    if(err){
+      console.log(err);
+    }
+    else if(!services){
+
+    }
+    else{
+      Content.Services=services;
+    }
+    res.render("services", Content);
+
+  })
 })
 
 app.get("/locations",(req,res)=>{
-  const Content={ Message: "Locations",Authenticated:false};
-  if(req.isAuthenticated()){
 
-    Content.Authenticated=true;
+  Location.find({},(err,locations)=>{
+
+    const Content={ Message: "Locations",Authenticated:false,Locations:[]};
+    
+    if(req.isAuthenticated()){
+
+      Content.Authenticated=true;
+    
+    }
+    if(err){
+      console.log(err);
+    }
+    else if(!locations){
+
+    }
+    else{
+      Content.Locations=locations;
+    }
+    res.render("locations", Content);
+
+  })
   
-  }
-  res.render("services", Content);
 })
 
 app.get("/franchise",(req,res)=>{
@@ -139,8 +175,33 @@ app.get("/franchise",(req,res)=>{
     Content.Authenticated=true;
   
   }
-  res.render("services", Content);
+  res.render("franchise", Content);
 
+});
+
+
+app.get("/bookings",(req,res)=>{
+  const Content={ Message: "Bookings",Authenticated:false};
+  if(req.isAuthenticated()){
+
+    Content.Authenticated=true;
+  
+  }
+  res.render("bookings", Content);
+});
+
+app.get("/bookaservice",(req,res)=>{
+
+  if(req.isAuthenticated()){
+
+    res.render("bookaservice");
+
+  }
+  else{
+    res.render("login",{Message: "Express Login",
+    Route: "/auth/login/details"})
+  }
+  
 })
 
 //listen to the port

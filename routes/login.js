@@ -33,6 +33,12 @@ module.exports = function (app, User, passport) {
       Route: "/auth/login/details",
     });
   });
+  app.get("/logout",(req,res)=>{
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+  })
 
   //other routes..
 };

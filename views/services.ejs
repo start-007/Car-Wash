@@ -14,9 +14,18 @@
       <%- include('partials/navbar'); -%>
 
    <% } %>
-  <div class="container content">
-    <h1><%= Message %></h1>
+   <div class="container content">
+    <h1>Services</h1>
 
+    <% Services.forEach((service)=>{ %>
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Service:<%=service.servicename %></div>
+        <div class="card-body">
+          <h5 class="card-title">Description:<%= service.description %></h5>
+        </div>
+      </div>
+    <% }) %>
+    
   </div>
   
 

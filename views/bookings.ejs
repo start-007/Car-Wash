@@ -1,0 +1,24 @@
+<%- include('partials/header'); -%>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<title>Home</title>
+</head>
+<body>
+  <% if(Authenticated){ %>
+
+    <%- include('partials/afterloginnavbar'); -%>
+
+  <% } else { %>
+
+      <%- include('partials/navbar'); -%>
+
+   <% } %>
+   <div class="container content">
+
+    <h1><%= Message %></h1>
+
+   </div>
+  
+  
+<%- include('partials/footer'); -%>
