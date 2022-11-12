@@ -2,6 +2,7 @@ module.exports = function (app, User, passport) {
   //////////////////////////Login///////////////////////////
   app.get("/auth/login", function (req, res) {
     res.render("login", {
+      User:"User",
       Message: "Express Login",
       Route: "/auth/login/details",
     });
@@ -29,6 +30,7 @@ module.exports = function (app, User, passport) {
   });
   app.get("/loginerror", (req, res) => {
     res.render("login", {
+      User:"User",
       Message: "Wrong username or password",
       Route: "/auth/login/details",
     });

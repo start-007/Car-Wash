@@ -44,9 +44,42 @@ module.exports = function (app, Location, Service,Booking) {
       if(err) console.log(err);
       else res.send({redirect:"/bookings"});
     })
-  
-    
-  })
+  });
+
+
+  app.get("/admin/decision/:status/:username/:location/:servicename",(req,res)=>{
+
+
+    console.log("in booking entered");
+    Booking.findOne({username:req.params.username,servicename:req.params.servicename,location:req.params.location},(err,booking)=>{
+
+      if(err){
+        console.log(err);
+      }
+      else if(!booking){
+        console.log("no booking");
+        res.render("admin/adminhome")
+      }
+      else{
+        console.log(booking);
+        if(req.params.status==="accept"){
+          booking.status=0;
+        }
+        else{
+          booking.status=2;
+        }
+        booking.save((err)=>{
+          if(err) console.log(err);
+          else res.redirect("/admin/bookings");
+        });
+        
+        
+        
+      }
+
+    })
+
+  });
 
   //other routes..
 };

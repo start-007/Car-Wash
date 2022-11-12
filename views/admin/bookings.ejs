@@ -22,6 +22,8 @@
           <h5 class="card-title">requestdate:<%= Booking.requestdate %></h5>
           <h5 class="card-title">requesttime:<%= Booking.requesttime %></h5>
           <h5 class="card-title">status:<%= Booking.status%></h5>
+          <a class="btn btn-dark" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
+          <a class="btn btn-dark" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
         </div>
       </div>
     <% }) %>

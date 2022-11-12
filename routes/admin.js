@@ -2,6 +2,7 @@ module.exports = function (app,Admin, bcrypt,Booking) {
   
   app.get("/auth/admin/login", (req, res) => {
     res.render("login", {
+      User:"Admin",
       Message: "Admin Login",
       Route: "/auth/admin/login/details",
     });
@@ -12,12 +13,23 @@ module.exports = function (app,Admin, bcrypt,Booking) {
       req.body.username,
       req.body.password
     );
-
-    res.render("admin/adminhome");
+    Admin.findOne({username:req.body.username},(err,admin)=>{
+      if(err){
+        console.log(err);
+      }
+      else if(!admin){
+        res.redirect("/admin/loginerror")
+      }
+      else{
+        res.render("admin/adminhome");
+      }
+    });
+    
     
   });
   app.get("/admin/loginerror", (req, res) => {
     res.render("login", {
+      User:"Admin",
       Message: "Wrong username or password",
       Route: "/auth/admin/login/details",
     });

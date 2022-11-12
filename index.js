@@ -218,7 +218,7 @@ app.get("/bookaservice",(req,res)=>{
 
   }
   else{
-    res.render("login",{Message: "Express Login",
+    res.render("login",{User:"User",Message: "Express Login",
     Route: "/auth/login/details"})
   }
   
