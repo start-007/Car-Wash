@@ -6,15 +6,6 @@ module.exports = function (app, User, passport) {
       Route: "/auth/login/details",
     });
   });
-  app.get("/auth/admin/login", (req, res) => {
-    res.render("login", {
-      Message: "Admin Login",
-      Route: "/auth/admin/login/details",
-    });
-  });
-  app.post("/auth/admin/login/details", (req, res) => {
-    console.log(req.body);
-  });
   app.post("/auth/login/details", function (req, res) {
     const user = new User({
       username: req.body.username,
@@ -24,6 +15,7 @@ module.exports = function (app, User, passport) {
       if (err) {
         console.log(err);
       } else {
+        console.log("login");
         passport.authenticate("local", { failureRedirect: "/loginerror" })(
           req,
           res,

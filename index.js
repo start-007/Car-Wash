@@ -53,6 +53,16 @@ userSchema.plugin(passportLocalMongoose);
 
 const User=new mongoose.model("User",userSchema);
 
+///Admin schema
+const adminSchema=new mongoose.Schema({
+  username:"String",
+  password:"String",
+});
+
+adminSchema.plugin(passportLocalMongoose);
+
+const Admin=new mongoose.model("Admin",userSchema);
+
 ///Initialize passport for the User Collection
 
 passport.use(User.createStrategy());
@@ -60,12 +70,14 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+///Initialize passport for the Admin Collection
+
 
 //////////////////////////////////////External Routes///////////////////////////////////////////
 
 require("./routes/login")(app,User,passport); // routes for the login for user and admin
 require("./routes/signup")(app,jsonParser,passport,User); // routes for user signup
-
+require("./routes/admin")(app,Admin,passport);
 
 
 
