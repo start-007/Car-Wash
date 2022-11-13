@@ -32,6 +32,22 @@ module.exports = function (app, Location, Service,Booking) {
     })
   
   });
+  app.post("/list/slots",(req,res)=>{
+    console.log("getting slots",req.body);
+    Booking.find(req.body,(err,services)=>{
+      if(err){
+        console.log(err);
+      }
+      else{
+        var slots=[];
+        services.forEach(service => {
+          slots.push(service.requesttime);
+        });
+        res.send(slots);
+      }
+    })
+  
+  });
   
   
   app.post("/user/bookaservice",(req,res)=>{

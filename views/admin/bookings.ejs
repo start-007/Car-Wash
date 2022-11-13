@@ -7,8 +7,14 @@
 
     <h2><%= Message %></h2>
     <form action="/admin/bookings/filters" method="post">
-      location:<input type="text" name="location">
-      date: <input type="date" name="date">
+      Location:<input type="text" name="location">
+      Date: <input type="date" name="date">
+      Status: <input type="text" list="status" name="status">
+      <datalist id="status">
+        <option value="Accepted">Accepted</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Pending">Pending</option>
+      </datalist>
       <button type="submit">Apply Filter</button>
     </form>
     <h1>Bookings</h1>
@@ -19,11 +25,22 @@
         <div class="card-header">Username:<%=Booking.username %></div>
         <div class="card-body">
           <h5 class="card-title">servicename:<%= Booking.servicename %></h5>
-          <h5 class="card-title">requestdate:<%= Booking.requestdate %></h5>
+          <h5 class="card-title">requestdate:<%= Booking.requestdate.toISOString().replace(/T/, ' ').replace(/\..+/, '').substr(0, 11).split("-").reverse().join("-"); %></h5>
           <h5 class="card-title">requesttime:<%= Booking.requesttime %></h5>
-          <h5 class="card-title">status:<%= Booking.status%></h5>
-          <a class="btn btn-dark" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
-          <a class="btn btn-dark" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
+          <% if(Booking.status===1) { %>
+            <h5 class="card-title">status:Pending</h5>
+            <a class="btn btn-dark" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
+            <a class="btn btn-dark" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
+          <% } %>
+          <% if(Booking.status===0) { %>
+            <h5 class="card-title">status:Accepted</h5>
+            <a class="btn btn-dark" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
+          <% }  %>
+          <%  if(Booking.status===2) { %>
+            <h5 class="card-title">status:Rejected</h5>
+            <a class="btn btn-dark" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
+          <% } %>
+          
         </div>
       </div>
     <% }) %>

@@ -54,23 +54,41 @@ module.exports = function (app,Admin, bcrypt,Booking) {
       }
       else{
         
-        mybookings=bookings;
+        bookings.forEach(booking => {
+          if(booking.status===1){
+            mybookings.push(booking);
+          }
+        });
       }
-      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing all bookings"});
+      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing all pending bookings"});
     })
   });
   app.post("/admin/bookings/filters",(req,res)=>{
     const filters={};
-    if(!req.body.location && !req.body.date){
+    console.log(req.body);
+    if(!req.body.location && !req.body.date && !req.body.status){
       console.log("entered");
       res.redirect("/admin/bookings")
+      return;
     }
-    if(req.body.location!=""){
+    if(req.body.location){
       filters.location=req.body.location;
     }
-    if(req.body.date!=""){
+    if(req.body.date){
       filters.requestdate=req.body.date;
     }
+
+    if(req.body.status==="Rejected"){
+      filters.status=2;
+    }
+    else if(req.body.status==="Accepted"){
+      filters.status=0;
+    }
+    else{
+      filters.status=1;
+    }
+  
+    console.log(filters);
     Booking.find(filters,(err,bookings)=>{
       var mybookings=[]
       if(err){
@@ -83,7 +101,7 @@ module.exports = function (app,Admin, bcrypt,Booking) {
         
         mybookings=bookings;
       }
-      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing results for "+req.body.location+","+req.body.date});
+      res.render("admin/bookings",{Authenticated:true,Bookings:mybookings,Message:"Showing results for "+req.body.location+" "+req.body.date+" "+req.body.status});
     })
   });
   

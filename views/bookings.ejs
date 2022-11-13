@@ -23,9 +23,18 @@
         <div class="card-header">location:<%=Booking.location %></div>
         <div class="card-body">
           <h5 class="card-title">servicename:<%= Booking.servicename %></h5>
-          <h5 class="card-title">requestdate:<%= Booking.requestdate %></h5>
+          <h5 class="card-title">requestdate:<%= Booking.requestdate.toISOString().replace(/T/, ' ').replace(/\..+/, '').substr(0, 11).split("-").reverse().join("-"); %></h5>
           <h5 class="card-title">requesttime:<%= Booking.requesttime %></h5>
-          <h5 class="card-title">status:<%= Booking.status%></h5>
+          <% if(Booking.status===1) { %>
+            <h5 class="card-title">status:Pending</h5>
+          <% } %>
+          <% if(Booking.status===0) { %>
+            <h5 class="card-title">status:Accepted</h5>
+          <% }  %>
+          <%  if(Booking.status===2) { %>
+            <h5 class="card-title">status:Rejected</h5>
+            <p>We are sorry,please book another slot</p>
+          <% } %>
         </div>
       </div>
     <% }) %>
