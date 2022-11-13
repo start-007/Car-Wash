@@ -1,7 +1,7 @@
 # Car-Wash
 
 
-The Car-Wash is Web application used for the booking Car washing service.The user can book for a specific time slot and can admin can accept or the reject the booked slot.
+The Car-Wash is Web application used for the booking car related services.The user can book for a specific time slot and admin can accept or the reject the booked slot.
 
 
 ---
