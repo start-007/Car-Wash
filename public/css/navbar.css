@@ -4,10 +4,26 @@
 
 }
 .navbar {
-  overflow: visible;
-  
+ 
+  height: 70px;
   position: fixed; /* Set the navbar to fixed position */
   top: 1%; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   z-index: 2;
+}
+
+.btn{
+  margin:1%;
+  width: 100px;
+}
+.increase-width{
+  width: 150px;
+}
+
+.navbar-nav{
+  margin-left: 30%;
+}
+
+#logo{
+  margin-left: 50%;
 }

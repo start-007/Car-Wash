@@ -1,3 +1,9 @@
+html{
+	scroll-behavior: smooth;
+}
+
+
+
 .card-flex{
   display: flex;
   width: 100%;
@@ -20,42 +26,26 @@
   color: white;
   text-align: center;
   padding: 1.5%;
+  margin-top: 5%;
 
 }
 
-.description{
-  margin-top: 3%;
-  padding: 2%;
-  background-color: rgb(245, 245, 245);
-}
+
+
+/*
 
 .image-decoration{
   width:300px;
   height: 300px;
-}
+}  */
 
-.home-cover{
-  width: 200px;
-}
-
-.card-text-white .card-text-dark{
-  width: 33%;
-}
-
-.text{
-  padding-left: 20%;
-}
-
-.desc-img{
-  padding-right: 20%;
-  padding-left: 10px;
-}
 
 .workers{
   margin: 20px;
+  align-items: center;
 }
 
-.facts-icons{
+.workers img{
   width: 70px;
   height: 70px;
   margin: 20px;
@@ -66,6 +56,83 @@
 }
 
 .carousel{
-  margin-left: 10%;
-  width: 80%;
+  margin-top: 10%;
+  width: 90%;
+  padding-left: 10%;
+}
+
+
+/* cards*/
+
+#cards{
+
+	padding: 0 0;
+  margin-top: 6%;
+
+}
+.card-body{
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+	grid-gap: 40px;
+	margin-top: 50px;
+  
+}
+.card-body div{
+	background: #1b1818;
+	padding: 40px;
+	font-size: 13px;
+	font-weight: 300;
+	border-radius: 20px;
+	transition: background 0.5s, transform 0.5s;
+}
+
+.card-body div h2{
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 10px;
+  color: azure;
+}
+.card-body div p{
+	
+  color: azure;
+}
+.card-body div:hover{
+	background: #4fb6e7;
+	transform: translateY(-10px);
+
+}
+
+/* about */
+
+#about{
+	padding: 40px 0 ;
+	color: #ababab;
+	margin-top: 20px;
+}
+.row{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.desc-img{
+	flex-basis: 35%;
+}
+.desc-img img{
+	width: 100%;
+  height: 25vw;
+	
+  object-fit: cover;
+}
+
+.desc-text{
+	flex-basis: 65%;
+}
+.desc-text p{
+	margin-top: 25px;
+	color: #000000;
+}
+
+.description{
+  padding: 2%;
+  background-color: rgb(245, 245, 245);
 }

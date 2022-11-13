@@ -26,22 +26,14 @@
       <div class="text-container">
         <input type="text" id="location" list="locations" 
                     placeholder="Enter Here" name="location" class="form-control"/>
-        <a class="btn btn-primary" href="#fillform">Submit</a>
+        <a class="btn btn-primary" id="locationsubmit" href="#fillform">Submit</a>
         <datalist id="locations"  style="overflow-y: auto!important">
         </datalist>
       </div>
     </div>
       
     </div>
-    <div>
-      (or)
-    </div>
-    <div>
-      Search based on your location
-    </div>
-    <button class="btn btn-primary" onclick="getLocation()">Use your Location</button>
     
-    <p>Please allow the website to use your location</p>
     <form id="fillform">
       <div class="form-group">
         <div class="text-container">
@@ -72,6 +64,7 @@
  
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 <script src="/javascript/bookaservice.js"></script>
 </html>

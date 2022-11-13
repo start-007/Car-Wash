@@ -21,12 +21,31 @@ module.exports = function (app,Admin, bcrypt,Booking) {
         res.redirect("/admin/loginerror")
       }
       else{
+        admin.status=1;
+        admin.save();
         res.render("admin/adminhome");
       }
     });
     
     
   });
+  app.get("/auth/admin/logout",(req,res)=>{
+
+    Admin.find({},(err,admin)=>{
+      if(err){
+        console.log(err);
+      }
+      else if(!admin){
+        res.redirect("/admin/loginerror")
+      }
+      else{
+        admin[0].status=0;
+        admin[0].save();
+        res.redirect("/");
+      }
+    });
+
+  })
   app.get("/admin/loginerror", (req, res) => {
     res.render("login", {
       User:"Admin",

@@ -57,6 +57,7 @@ const User=new mongoose.model("User",userSchema);
 const adminSchema=new mongoose.Schema({
   username:"String",
   password:"String",
+  status:"Number"
 });
 const serviceScheam=new mongoose.Schema({
   servicename:"String",
