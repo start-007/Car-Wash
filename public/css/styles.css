@@ -1,13 +1,11 @@
-
 .card-flex{
   display: flex;
-  padding-left: 17%;
+  width: 100%;
   z-index: -1;
 }
 
 .content{
   margin-top: 5%;
-  
 }
 
 
@@ -20,18 +18,54 @@
   height: 5rem;
   background-color: rgb(29, 28, 28);
   color: white;
-
+  text-align: center;
   padding: 1.5%;
 
 }
 
 .description{
   margin-top: 3%;
+  padding: 2%;
   background-color: rgb(245, 245, 245);
-
 }
 
 .image-decoration{
-  width:200px;
-  height: 200px;
+  width:300px;
+  height: 300px;
+}
+
+.home-cover{
+  width: 200px;
+}
+
+.card-text-white .card-text-dark{
+  width: 33%;
+}
+
+.text{
+  padding-left: 20%;
+}
+
+.desc-img{
+  padding-right: 20%;
+  padding-left: 10px;
+}
+
+.workers{
+  margin: 20px;
+}
+
+.facts-icons{
+  width: 70px;
+  height: 70px;
+  margin: 20px;
+}
+
+.fact-cards{
+  margin: 30px;
+}
+
+.carousel{
+  margin-left: 10%;
+  width: 80%;
 }
