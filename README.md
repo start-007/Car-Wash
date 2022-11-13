@@ -9,7 +9,7 @@ The Car-Wash is Web application used for the booking car related services.The us
 ## Tech Stack:
 
 ### Frontend: HTML,CSS,Bootstrap,Javascript
-### Backend: Node.js with Express.js
+### Backend: Express.js - Node.js Web Application Framework
 ### Database: Mongodb
 
 ---
