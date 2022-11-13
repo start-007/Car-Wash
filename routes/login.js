@@ -3,7 +3,7 @@ module.exports = function (app, User, passport) {
   app.get("/auth/login", function (req, res) {
     res.render("login", {
       User:"User",
-      Message: "Express Login",
+      Message: "Expressjs Login",
       Route: "/auth/login/details",
     });
   });

@@ -2,7 +2,7 @@ module.exports = function (app, jsonParser, passport, User) {
   ////////////////////////Signup/////////////////////////
   app.get("/auth/signup", function (req, res) {
     res.render("signup", {
-      Message: "Express Signup",
+      Message: "Expressjs Signup",
     });
   });
 

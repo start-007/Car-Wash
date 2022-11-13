@@ -2,8 +2,6 @@ html{
 	scroll-behavior: smooth;
 }
 
-
-
 .card-flex{
   display: flex;
   width: 100%;
@@ -29,6 +27,9 @@ html{
   margin-top: 5%;
 
 }
+
+
+
 
 
 

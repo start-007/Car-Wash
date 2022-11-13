@@ -22,6 +22,10 @@ submitbutton.addEventListener("click",(e)=>{
     })
     .then(function (data) {
       document.getElementById("error").innerHTML=data.Message;
+      setTimeout(()=>{
+        document.getElementById("error").innerHTML="";
+      },2000);
+      
     })
     .catch(console.log(console.error));
 })

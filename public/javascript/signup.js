@@ -34,6 +34,9 @@ signupsubmit.addEventListener("click", (e) => {
       })
       .catch(console.log(console.error));
   } else {
-    errormsg.innerHTML = "Retyped password doesnot match";
+    document.getElementById("error").innerHTML="Retyped password doesnot match";
+      setTimeout(()=>{
+        document.getElementById("error").innerHTML="";
+      },4000);
   }
 });
