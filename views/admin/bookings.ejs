@@ -1,17 +1,18 @@
 <%- include("../partials/header") -%>
 <link rel="stylesheet" href="/css/navbar.css">
 <link rel="stylesheet" href="/css/mycards.css">
+
   <title>Bookings</title>
 </head>
 <body>
   <%- include("adminpartials/adminnavbar") -%>
   <div class="container content">
-    
-
-    <h2><%= Message %></h2>
 
   
-    <form action="/admin/bookings/filters" method="post">
+    <form style="border: 2px solid; padding: 3%;" action="/admin/bookings/filters" method="post">
+      <div>
+      <h1>Filters</h1><span>(Filters by default shows all pending bookings)</span>
+    </div>
       Location:<input type="text" name="location">
       Date: <input type="date" name="date">
       Status: <input type="text" list="status" name="status">
@@ -22,7 +23,9 @@
       </datalist>
       <button type="submit">Apply Filter</button>
     </form>
-    <h1>Bookings</h1>
+    <div style="margin: 3%;">
+    <h1 >Bookings</h1>
+    <h3><%= Message %></h3>
 
     
     <table>
@@ -63,6 +66,7 @@
     <% }) %>
   
   </table>
+</div>
   </div>
   
 </body>
