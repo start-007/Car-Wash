@@ -6,18 +6,39 @@
   padding-top: 20px;
   
 } */
-.content{
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
   margin-top: 5%;
 }
 
-.container{
+.container {
   text-align: center;
   width: 100%;
 }
 
-.card{
-
+.card {
   border-radius: 10%;
 }
 
-.no-click {pointer-events: none;}
+.no-click {
+  pointer-events: none;
+}
+
+.div1,
+.div2 {
+  vertical-align: top;
+}
+.div1 {
+  float: left;
+  width: 70px;
+}
+.div2 {
+  display: table-cell;
+}
+.div3 {
+  display: table-cell;
+}

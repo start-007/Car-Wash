@@ -16,8 +16,13 @@
    <%- include("partials/whatsapp") -%>
   <div class="container content">
     <h1>Locations</h1>
+    <table>
+    <% Locations.forEach((location,idx)=>{ %>
+      <% if((idx)%3===0) { %>
 
-    <% Locations.forEach((location)=>{ %>
+        <tr >
+      <% } %>
+      <td>
       <div class="card  border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header bg-transparent border-dark"">
           <img class="card-img-top" height="200px" src="/assets/logo.png" alt="Card image cap">
@@ -31,9 +36,14 @@
           <h5 class="card-title">Zip:<%= location.zip %></h5>
         </div>
       </div>
+      </td>
+      <% if((idx)%3===2) { %>
+
+      </tr>
+      <% } %>
     <% }) %>
-    
+  </table>
   </div>
   
-
+<script src="/javascript/handlecards.js"></script>
 <%- include('partials/footer'); -%>

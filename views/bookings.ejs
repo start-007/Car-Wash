@@ -17,8 +17,13 @@
 <div class="container content"> 
     
     <h1>Bookings</h1>
+  <table>
+    <% Bookings.forEach((Booking,idx)=>{ %>
+      <% if((idx)%3===0) { %>
 
-    <% Bookings.forEach((Booking)=>{ %>
+        <tr >
+      <% } %>
+      <td>
       <div class="card border-dark mb-3" style="max-width: 18rem;">
         <div class="card-header bg-transparent border-dark">Location: <strong> <%=Booking.location %></strong></div>
         <div class="card-body bg-transparent border-dark">
@@ -37,7 +42,12 @@
           <% } %>
         </div>
       </div>
+    </td>
+    <% if((idx)%3===2) { %>
+      </tr>
+    <% } %>
     <% }) %>
+  </table>
 
  </div>
   
