@@ -1,6 +1,6 @@
 
 <%- include('partials/header'); -%>
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/mycards.css">
 <title>Locations</title>
 </head>
 <body>
@@ -17,9 +17,12 @@
     <h1>Locations</h1>
 
     <% Locations.forEach((location)=>{ %>
-      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-        <div class="card-header">Branch Name:<%=location.branchname %></div>
-        <div class="card-body">
+      <div class="card  border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-dark"">
+          <img class="card-img-top" height="200px" src="/assets/logo.png" alt="Card image cap">
+        </div>
+        <div class="card-body bg-transparent border-dark">
+          <h5 class="card-title">Branch Name:<%=location.branchname %></h5>
           <h5 class="card-title">Contact:<%= location.contact %></h5>
           <h5 class="card-title">Address:<%= location.address %></h5>
           <h5 class="card-title">City:<%= location.city %></h5>

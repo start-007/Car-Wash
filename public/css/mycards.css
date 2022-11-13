@@ -10,10 +10,14 @@
   margin-top: 5%;
 }
 
-
 .container{
   text-align: center;
   width: 100%;
 }
 
+.card{
 
+  border-radius: 10%;
+}
+
+.no-click {pointer-events: none;}

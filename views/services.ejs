@@ -1,7 +1,7 @@
 
 <%- include('partials/header'); -%>
 
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/mycards.css">
 <title>Services</title>
 </head>
 <body>
@@ -16,17 +16,19 @@
    <% } %>
    <div class="container content">
     <h1>Services</h1>
-
     <% Services.forEach((service)=>{ %>
-      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-        <div class="card-header">Service:<%=service.servicename %></div>
-        <div class="card-body">
-          <h5 class="card-title">Description:<%= service.description %></h5>
+      <div class="card  border-dark mb-3" style="width: 18rem;">
+        <div class="card-header bg-transparent border-dark"">
+          <img class="card-img-top" height="200px" src="/assets/logo.png" alt="Card image cap">
+        </div>
+        <div class="card-body bg-transparent border-dark">
+          <h5 class="card-title">Service:<%=service.servicename %></h5>
+          <p class="card-text">Description:<%= service.description %> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
     <% }) %>
-    
   </div>
   
 
 <%- include('partials/footer'); -%>
+
