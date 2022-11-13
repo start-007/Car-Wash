@@ -15,17 +15,16 @@
       <%- include('partials/navbar'); -%>
 
    <% } %>
-
+   
    <div class="container content">
-    <h1>Book a service</h1>
-
     <div>
-      Search based on city
-    </div>
+    <div><h1>Book a service</h1></div>
+    
     <div class="input-group">
-      <div class="text-container">
+      <div class="text-container form-control">
+        <label for="location">Search based on city</label>
         <input type="text" id="location" list="locations" 
-                    placeholder="Enter Here" name="location" class="form-control"/>
+                    placeholder="Search City" name="location" class="form-control"/>
         <a  href="#formdiv" class="btn btn-primary">Submit</a>
         <datalist id="locations"  style="overflow-y: auto!important">
         </datalist>
@@ -33,25 +32,10 @@
     </div>
       
     </div>
-    
-    <div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt atque, perferendis asperiores ea blanditiis eius at possimus similique obcaecati sapiente et fugiat reprehenderit saepe nobis facere fugit animi. Magni, et!</p>
-    </div>
-    
-    
+  </div>
+  
     <form id="fillform">
+      <h1>Please Fill the below Form</h1>
       <div id="formdiv" class="form-group">
         <div class="text-container">
           <label  class="required" for="service">Service</label>
