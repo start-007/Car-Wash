@@ -41,7 +41,8 @@ module.exports = function (app, Location, Service,Booking) {
       else{
         var slots=[];
         services.forEach(service => {
-          slots.push(service.requesttime);
+          if(service.status===1 || service.status===0)
+            slots.push(service.requesttime);
         });
         res.send(slots);
       }
@@ -63,11 +64,11 @@ module.exports = function (app, Location, Service,Booking) {
   });
 
 
-  app.get("/admin/decision/:status/:username/:location/:servicename",(req,res)=>{
+  app.get("/admin/decision/:status/:username/:location/:servicename/:date/:time",(req,res)=>{
 
 
     console.log("in booking entered");
-    Booking.findOne({username:req.params.username,servicename:req.params.servicename,location:req.params.location},(err,booking)=>{
+    Booking.findOne({username:req.params.username,servicename:req.params.servicename,location:req.params.location,requestdate:req.params.date,requesttime:req.params.time},(err,booking)=>{
 
       if(err){
         console.log(err);

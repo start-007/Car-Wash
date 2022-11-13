@@ -41,16 +41,16 @@
           <h5 class="card-title">Request Time: <strong><%= Booking.requesttime %></strong></h5>
           <% if(Booking.status===1) { %>
             <h5 class="card-title">Status: <strong> Pending</strong></h5>
-            <a class="btn btn-success card-title" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
-            <a class="btn btn-danger card-title" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
+            <a class="btn btn-success card-title" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>/<%= Booking.requestdate %>/<%= Booking.requesttime %>">Accept</a>
+            <a class="btn btn-danger card-title" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>/<%= Booking.requestdate %>/<%= Booking.requesttime %>">Reject</a>
           <% } %>
           <% if(Booking.status===0) { %>
             <h5 class="card-title">Status: <strong> Accepted</strong></h5>
-            <a class="btn btn-danger card-title" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Reject</a>
+            <a class="btn btn-danger card-title" href="/admin/decision/reject/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>/<%= Booking.requestdate %>/<%= Booking.requesttime %>">Reject</a>
           <% }  %>
           <%  if(Booking.status===2) { %>
             <h5 class="card-title">Status: <strong> Rejected</strong></h5>
-            <a class="btn btn-success card-title" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>">Accept</a>
+            <a class="btn btn-success card-title" href="/admin/decision/accept/<%= Booking.username %>/<%= Booking.location %>/<%= Booking.servicename %>/<%= Booking.requestdate %>/<%= Booking.requesttime %>">Accept</a>
           <% } %>
           
         </div>
