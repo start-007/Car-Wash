@@ -1,0 +1,19 @@
+/* .container{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+  
+} */
+.content{
+  margin-top: 5%;
+}
+
+
+.container{
+  text-align: center;
+  width: 100%;
+}
+
+

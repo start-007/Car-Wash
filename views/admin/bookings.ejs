@@ -1,13 +1,16 @@
 <%- include("../partials/header") -%>
 <link rel="stylesheet" href="/css/navbar.css">
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/mycards.css">
   <title>Bookings</title>
 </head>
 <body>
   <%- include("adminpartials/adminnavbar") -%>
   <div class="container content">
+    
 
     <h2><%= Message %></h2>
+
+  
     <form action="/admin/bookings/filters" method="post">
       Location:<input type="text" name="location">
       Date: <input type="date" name="date">
@@ -21,6 +24,8 @@
     </form>
     <h1>Bookings</h1>
 
+    
+    
     <% Bookings.forEach((Booking)=>{ %>
       <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">location:<%=Booking.location %></div>
@@ -45,7 +50,10 @@
           
         </div>
       </div>
+
+    
     <% }) %>
+  
     
   </div>
   

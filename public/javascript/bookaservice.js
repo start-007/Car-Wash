@@ -132,6 +132,7 @@ date.addEventListener("change", (e) => {
     })
     .catch(console.log(console.error));
 });
+
 // function initMap() {
 //   // Google maps are now initialized.
 //   getLatLngByZipcode(518124);

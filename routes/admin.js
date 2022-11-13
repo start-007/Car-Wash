@@ -23,7 +23,7 @@ module.exports = function (app,Admin, bcrypt,Booking) {
       else{
         admin.status=1;
         admin.save();
-        res.render("admin/adminhome");
+        res.redirect("/admin/bookings");
       }
     });
     
